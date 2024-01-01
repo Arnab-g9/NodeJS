@@ -19,6 +19,7 @@ app.use("/", (req, res, next) => {
 });
 
 app.use(
+  "/admin",
   adminRoutes
 ); /** importing adminRoute object that contains the admin related routes */
 
