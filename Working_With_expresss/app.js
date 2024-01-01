@@ -1,5 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const adminRoutes = require("./routes/admin");
+const shopRoutes = require("./routes/shop");
 const app = express();
 // app.use((req, res, next) => {
 //   console.log("In the middleWare!");
@@ -15,28 +17,17 @@ app.use("/", (req, res, next) => {
   next();
 });
 
-app.use("/add-product", (req, res, next) => {
-  // console.log("In the add-product middleWare!");
-  res.send(
-    '<form action="/product" method="POST"> <input type="text" name="title"> <input type="number" name="age"> <button type="submit">Add Product</button> </form>'
-  );
-});
+app.use(
+  adminRoutes
+); /** importing adminRoute object that contains the admin related routes */
 
-app.use("/product", (req, res, next) => {
-  console.log(req.body);
-  // console.log(req.body.title);
-  // console.log(req.body.age);
-  res.redirect("/");
-});
+app.use(
+  shopRoutes
+); /** importing shopRoute object that contains the admin related routes */
 
 // app.use("/review", (req, res, next) => {
 //   console.log("In the review middleWare!");
 //   res.send('<h1>The "Add Product" page</h1>');
 // });
-
-app.use("/", (req, res, next) => {
-  // console.log("In the another ==== middleWare!");
-  res.send("<h1>Hello from express</h1>");
-});
 
 app.listen(3000);
