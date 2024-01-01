@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const adminRoutes = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
+const errorPage = require("./routes/404");
 const app = express();
 // app.use((req, res, next) => {
 //   console.log("In the middleWare!");
@@ -29,5 +30,7 @@ app.use(
 //   console.log("In the review middleWare!");
 //   res.send('<h1>The "Add Product" page</h1>');
 // });
+
+app.use(errorPage);
 
 app.listen(3000);
