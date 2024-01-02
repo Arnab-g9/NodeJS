@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-
+const rootDir = require("../util/path");
 const router =
   express.Router(); /** this router method comes with express. It's like mini express app or plugable with othe express app, which we can export to the other file */
 
@@ -10,7 +10,10 @@ router.get("/add-product", (req, res, next) => {
   /* res.send(
     '<form action="/admin/add-product" method="POST"> <input type="text" name="title"> <input type="number" name="age"> <button type="submit">Add Product</button> </form>'
   ); */
-  res.sendFile(path.join(__dirname, "../", "views", "add-product.html"));
+  // res.sendFile(path.join(__dirname, "..", "views", "add-product.html"));
+  res.sendFile(
+    path.join(rootDir, "views", "add-product.html")
+  ); /** create our own helper variable and import it here to give us the path. but we can use the old approach also */
 });
 
 // /admin/add-product => POSt
