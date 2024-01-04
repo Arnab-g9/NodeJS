@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const adminRoutes = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
 const errorPage = require("./routes/404");
+const path = require("path");
 const app = express();
 // app.use((req, res, next) => {
 //   console.log("In the middleWare!");
@@ -12,7 +13,7 @@ const app = express();
 app.use(
   bodyParser.urlencoded({ extended: true })
 ); /** parsing the body of the incoming request and the persing should be done on top and the urlencoded method which is present inside the bodyparser object has the next() method that helps to go the request to our middleware to */
-
+app.use(express.static(path.join(__dirname, "public")));
 app.use("/", (req, res, next) => {
   // console.log("This always runs!");
   next();
