@@ -13,7 +13,11 @@ const app = express();
 app.use(
   bodyParser.urlencoded({ extended: true })
 ); /** parsing the body of the incoming request and the persing should be done on top and the urlencoded method which is present inside the bodyparser object has the next() method that helps to go the request to our middleware to */
-app.use(express.static(path.join(__dirname, "public")));
+
+app.use(
+  express.static(path.join(__dirname, "public"))
+); /** for serve the static files like css html and images we can use the middleware express.static(); inside that we have to specify the path from where we can get the files like in this case we actuallly into the root folder and from there we spcify the public folder. and in that the rest of the files are stay. thats how it works */
+
 app.use("/", (req, res, next) => {
   // console.log("This always runs!");
   next();
