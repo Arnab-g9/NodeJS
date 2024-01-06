@@ -1,10 +1,13 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const adminRoutes = require("./routes/admin");
+const adminData = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
 const errorPage = require("./routes/404");
 const path = require("path");
 const app = express();
+
+app.set("view engine", "ejs"); /** setting view engine to ejs  */
+app.set("views", "views");
 // app.use((req, res, next) => {
 //   console.log("In the middleWare!");
 //   next(); // -- this allowes the request to continue to the next middleware in line, if we don't call the next then we shoud send the response otherwise the request will die.
@@ -25,7 +28,7 @@ app.use("/", (req, res, next) => {
 
 app.use(
   "/admin",
-  adminRoutes
+  adminData.routes /** adminData here all the exports u can say or object u can say that u export */
 ); /** importing adminRoute object that contains the admin related routes */
 
 app.use(
