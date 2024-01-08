@@ -9,13 +9,14 @@ const products = [];
 //  /admin/add-product => GET
 router.get("/add-product", (req, res, next) => {
   // console.log("In the add-product middleWare!");
-  /* res.send(
-    '<form action="/admin/add-product" method="POST"> <input type="text" name="title"> <input type="number" name="age"> <button type="submit">Add Product</button> </form>'
-  ); */
-  // res.sendFile(path.join(__dirname, "..", "views", "add-product.html"));
-  res.sendFile(
-    path.join(rootDir, "views", "add-product.html")
-  ); /** create our own helper variable and import it here to give us the path. but we can use the old approach also */
+  //  res.send(
+  //   '<form action="/admin/add-product" method="POST"> <input type="text" name="title"> <input type="number" name="age"> <button type="submit">Add Product</button> </form>'
+  // );
+  //  res.sendFile(path.join(__dirname, "..", "views", "add-product.html"));
+  // res.sendFile(
+  //   path.join(rootDir, "views", "add-product.html")
+  // );  create our own helper variable and import it here to give us the path. but we can use the old approach also
+  res.render("add-product", { pageTitle: "Add Product" });
 });
 
 // /admin/add-product => POSt
