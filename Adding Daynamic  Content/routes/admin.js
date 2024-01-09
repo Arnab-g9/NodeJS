@@ -16,7 +16,10 @@ router.get("/add-product", (req, res, next) => {
   // res.sendFile(
   //   path.join(rootDir, "views", "add-product.html")
   // );  create our own helper variable and import it here to give us the path. but we can use the old approach also
-  res.render("add-product", { pageTitle: "Add Product" });
+  res.render("add-product", {
+    pageTitle: "Add Product",
+    path: "/admin/add-product",
+  });
 });
 
 // /admin/add-product => POSt
