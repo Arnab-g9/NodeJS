@@ -26,6 +26,7 @@ router.get("/add-product", (req, res, next) => {
 router.post("/add-product", (req, res, next) => {
   /** path name can be same as the method are different like get and post */
   products.push({ title: req.body.title });
+  console.log(products);
   // console.log(req.body);
   // console.log(req.body.title);
   // console.log(req.body.age);

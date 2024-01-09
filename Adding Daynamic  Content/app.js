@@ -6,7 +6,8 @@ const errorPage = require("./routes/404");
 const path = require("path");
 const app = express();
 
-app.set("view engine", "pug"); /** setting view engine to ejs  */
+// app.set("view engine", "pug"); /** setting view engine to pug  */
+app.set("view engine", "ejs");
 app.set("views", "views");
 // app.use((req, res, next) => {
 //   console.log("In the middleWare!");
