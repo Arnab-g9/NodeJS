@@ -15,6 +15,7 @@ exports.postAddProduct = (req, res, next) => {
 };
 
 exports.getProducts = (req, res, next) => {
-  const products = Product.fetchAll(); // get product list by static method of fetch all of product controller
-  res.render("shop", { prods: products, pageTitle: "shop", path: "/" });
+  Product.fetchAll((products) => {
+    res.render("shop", { prods: products, pageTitle: "shop", path: "/" });
+  }); // get product list by static method of fetch all of product controller
 };
