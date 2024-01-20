@@ -1,5 +1,6 @@
 // const products = [];
 const Product = require("../models/product"); //importing product class
+
 exports.getAddProduct = (req, res, next) => {
   res.render("admin/add-product", {
     pageTitle: "Add Product",
@@ -16,10 +17,10 @@ exports.postAddProduct = (req, res, next) => {
 
 exports.getProducts = (req, res, next) => {
   Product.fetchAll((products) => {
-    res.render("shop/product-list", {
+    res.render("admin/products", {
       prods: products,
-      pageTitle: "shop",
-      path: "/",
+      pageTitle: "Admin",
+      path: "/admin/products",
     });
   }); // get product list by static method of fetch all of product controller
 };
